@@ -4,7 +4,7 @@
     <img width="60%" src="assets/architecture.png">
 </p>
 
-Creating a Docker containerized application that retrieves live train data from the [Digitraffic API](https://www.digitraffic.fi/en/), ingests it using Kafka, performs a data quality assessment, and standardizes and sanitizes the data into a specified format.
+Creating a Docker containerized application that retrieves live train data from the [Digitraffic API](https://rata.digitraffic.fi/swagger/#/live-trains/getLiveTrainsByVersion), ingests it using Kafka, performs a data quality assessment, and standardizes and sanitizes the data into a specified format.
 
 *Minimum Objectives*
 1. Create a Dockerfile to set up the application environment.
@@ -29,4 +29,4 @@ Apache Kafka, Python, Pydantic
     <img width="60%" src="assets/mount.PNG">
 </p>
 
-The output of the ingestion will be stored in the mount folder of your machine. You can also see the output example [HERE](https://www.digitraffic.fi/en/)
+The output of the ingestion will be stored in the mount folder of your machine. You can also see the output example [HERE](https://github.com/ariclenessilva/siemensTechnicalInterview/tree/main/outputs_examples)
