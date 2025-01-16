@@ -26,7 +26,7 @@ Apache Kafka, Python, Pydantic
 
 **Change the path for mount**
 <p align="center" width="100%">
-    <img width="60%" src="assets/mount.PNG">
+    <img width="100%" src="assets/mount.PNG">
 </p>
 
 The output of the ingestion will be stored in the mount folder of your machine. You can also see the output example [HERE](https://github.com/ariclenessilva/siemensTechnicalInterview/tree/main/outputs_examples)

@@ -106,7 +106,7 @@ class Item(BaseModel):
         required_fields = ['trainNumber', 'departureDate', "deleted"]
         missing_fields = [field for field in required_fields for entry in data if field not in entry]
         
-        return ', '.join(missing_fields)
+        return list(set(missing_fields))
 
     @classmethod
     def fields_issues(cls, data: List[dict]):
@@ -117,12 +117,12 @@ class Item(BaseModel):
                 the_list.append('departureDate')
             if entry['trainNumber'] is None:
                 the_list.append('trainNumber')
-
+            
             try:
                 format_datetime(entry['departureDate'])
             except:
-                the_list.append('trainNumber')
-
+                the_list.append('departureDate')
+            
         return list(set(the_list))
 
     
@@ -145,20 +145,11 @@ class TrainDataModel(BaseModel):
         values['num_records'] = len(values.get('data', []))
         return values
 
-
-    @root_validator(pre=True)
-    def remove_duplicates(cls, values):
-        items = values.get('data', [])
-        #unique_trains = {frozenset(item.items()) for item in items}
-        #values['data'] = [dict(train) for train in unique_trains]
-
-        return values
-
     @root_validator(pre=True)
     def required_fields(cls, values):
         data = values.get('data', [])
 
-        #values['missing_required_fields'] = Item.check_required_fields(data)
+        values['missing_required_fields'] = Item.check_required_fields(data)
 
         return values
     
